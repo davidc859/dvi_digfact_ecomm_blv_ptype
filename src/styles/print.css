@@ -1,0 +1,73 @@
+/* Styles pour l'impression */
+
+/* Masquer le contenu d'impression à l'écran */
+.print-content {
+  display: none !important;
+}
+
+/* Lors de l'impression */
+@media print {
+  /* Masquer tout sauf le contenu d'impression */
+  body * {
+    visibility: hidden !important;
+  }
+  
+  /* Afficher uniquement le contenu d'impression */
+  .print-content {
+    visibility: visible !important;
+    display: block !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+  
+  .print-content * {
+    visibility: visible !important;
+  }
+  
+  /* Réinitialiser les marges pour l'impression */
+  @page {
+    margin: 0.5cm;
+  }
+  
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Styles pour les tableaux */
+  .print-content table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+  }
+  
+  .print-content thead {
+    display: table-header-group !important;
+  }
+  
+  .print-content tbody {
+    display: table-row-group !important;
+  }
+  
+  .print-content tr {
+    display: table-row !important;
+    page-break-inside: avoid !important;
+  }
+  
+  .print-content th,
+  .print-content td {
+    display: table-cell !important;
+  }
+  
+  /* Assurer que les flex containers s'affichent correctement */
+  .print-content .flex {
+    display: flex !important;
+  }
+  
+  /* Éviter les sauts de page à l'intérieur des sections */
+  .print-content > div > div {
+    page-break-inside: avoid;
+  }
+}
