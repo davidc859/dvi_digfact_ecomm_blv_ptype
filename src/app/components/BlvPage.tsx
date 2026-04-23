@@ -4702,16 +4702,16 @@ export default function BlvPage() {
                                                         <td className="font-['Roboto',sans-serif] py-[7px] text-center text-[11px]" style={{ fontWeight: 700 }}>{p.quantiteLivree}</td>
                                                         <td className="text-[11px] font-['Roboto',sans-serif] py-[7px] text-center" style={{ fontWeight: 600 }}>{p.quantiteFacturee}</td>
                                                         <td className="text-[11px] font-['Roboto',sans-serif] text-[#343a40] py-[7px] text-right pr-[8px]" style={{ fontWeight: 600 }}>{p.prixPharmacien.toFixed(2)}€</td>
-                                                        <td className="text-[11px] font-['Roboto',sans-serif] py-[7px] text-right pr-[8px]" style={{ fontWeight: 600 }}>{p.prixUnitaireAttendu.toFixed(2)}€</td>
-                                                        <td className="text-[11px] font-['Roboto',sans-serif] py-[7px] text-right pr-[8px]" style={{ fontWeight: 600 }}>{p.prixUnitaireFacture.toFixed(2)}€</td>
+                                                        <td className="text-[11px] font-['Roboto',sans-serif] py-[7px] text-right pr-[8px]" style={{ fontWeight: p.hasValidationError ? 700 : 600, color: p.hasValidationError ? '#cf1322' : '#343a40' }}>{p.prixUnitaireAttendu.toFixed(2)}€</td>
+                                                        <td className="text-[11px] font-['Roboto',sans-serif] py-[7px] text-right pr-[8px]" style={{ fontWeight: p.hasValidationError ? 700 : 600, color: p.hasValidationError ? '#cf1322' : '#343a40' }}>{p.prixUnitaireFacture.toFixed(2)}€</td>
                                                         <td className="py-[7px] pr-[12px]">
                                                           <div className="flex items-center justify-center gap-[8px]">
                                                             {p.hasValidationError ? (
-                                                              <span className="px-[6px] py-[2px] rounded-full inline-block text-[9px] whitespace-nowrap bg-[#cf1322] text-white font-bold">Écart</span>
+                                                              <span className="px-[6px] py-[2px] rounded-full inline-block text-[9px] whitespace-nowrap bg-[#cf1322] text-white font-bold">signaler un écart</span>
                                                             ) : p.hasAvoirEnCours ? (
-                                                              <span className="px-[6px] py-[2px] rounded-full inline-block text-[9px] whitespace-nowrap bg-[#006B7D] text-white font-bold">Avoir</span>
+                                                              <span className="px-[6px] py-[2px] rounded-full inline-block text-[9px] whitespace-nowrap bg-[#006B7D] text-white font-bold">Avoir en cours</span>
                                                             ) : (
-                                                              <span className="px-[6px] py-[2px] rounded-full inline-block text-[9px] whitespace-nowrap bg-[#e8f5e9] text-[#2e7d32] font-bold">OK</span>
+                                                              <span className="px-[6px] py-[2px] rounded-full inline-block text-[9px] whitespace-nowrap bg-[#e8f5e9] text-[#2e7d32] font-bold">Facture rectifiée</span>
                                                             )}
                                                           </div>
                                                         </td>
